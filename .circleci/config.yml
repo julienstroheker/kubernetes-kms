@@ -12,6 +12,10 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker
-      - run: 
+      - run:
           name: Build
           command: V=1 make build
+      - run:
+          name: Run and tests
+          command: ./kubernetes-kms && go run test/client.go
+          
